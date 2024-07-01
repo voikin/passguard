@@ -1,0 +1,12 @@
+{
+    "patterns": [
+        "password",
+        "123456",
+        "qwerty",
+        "letmein",
+        "welcome",
+        "admin",
+        "user",
+        "root"
+    ]
+}
