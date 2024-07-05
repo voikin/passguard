@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/voikin/passguard/internal/controllers"
 	"github.com/voikin/passguard/internal/services/password"
@@ -31,6 +32,13 @@ func main() {
 	controllers := controllers.New(useCases)
 
 	r := gin.Default()
+	r.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"*"},
+		AllowMethods:     []string{"GET"},
+		AllowHeaders:     []string{"Origin", "Content-Length", "Content-Type"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+	}))
 
 	api := r.Group("/api")
 	{

@@ -5,6 +5,8 @@ type PasswordService interface {
 	CalculateEntropy(password string) int
 	CalculatePoolSize(password string) int
 	CheckCommonPatterns(password string) int
+	CalculateCombinationScore(password string) int
+	CalculatePositionalDistributionScore(password string) int
 }
 
 type UseCases struct {
